@@ -71,7 +71,7 @@ public class Transaction {
 				.sorted(Comparator.comparing(Trader::getName)).forEach(System.out::println);
 		 System.out.println();
 		
-		System.out.println("4. Return a string of all traders’ names sorted alphabetically.");
+		System.out.println("4. Return a string of all tradersï¿½ names sorted alphabetically.");
 		System.out.println("4 " +  
 		transactions.stream().map(Transaction::getTrader).map(Trader::getName).sorted().distinct().sorted().reduce("", (a,b) -> a+b+"_"));
 		System.out.println("4 " +  
@@ -86,12 +86,12 @@ public class Transaction {
 			.sorted(Comparator.comparing(Trader::getName)).forEach(System.out::println);
 		
 		System.out.println();
-		System.out.println("6. Print all transactions’ values from the traders living in Cambridge.");
+		System.out.println("6. Print all transactionsï¿½ values from the traders living in Cambridge.");
 		System.out.print("6. " );
 	    transactions.stream().filter((trans) -> trans.getTrader().getCity().equals("Cambridge")).collect(Collectors.toList()).forEach(System.out::println);
 		
 		System.out.println();
-		System.out.println("7. What’s the highest value of all the transactions?");
+		System.out.println("7. Whatï¿½s the highest value of all the transactions?");
 		System.out.print("7. " );
 	    Integer max = transactions.stream().map((trans) -> trans.getValue()).reduce(0, Integer::max);
 	    double sum = transactions.stream().mapToDouble((trans) -> trans.getValue()).sum();

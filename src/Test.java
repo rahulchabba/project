@@ -1,11 +1,39 @@
+class Parent {
+    private final int num = 1;
 
-public class Test {
+    Parent() {
+        System.out.println("Parent class default constructor.");
+    }
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ResponseValidationTypeCodes s = new ResponseValidationTypeCodes();
-		System.out.println(s.getValueByCode("http_port"));
-		System.out.println(ResponseValidationTypeCodes.getInstance().getValueByCode("http_port"));
-	}
+    Parent(String x) {
+        System.out.println("Parent class parameterised constructor.");
+    }
+
+    public static void foo() {
+        System.out.println("Parent class foo!");
+    }
+}
+
+class Child extends Parent {
+
+    public static void foo() {
+
+    }
+
+
+}
+
+public class Test extends Parent {
+
+    public Test() {
+        super();
+    }
+
+
+    public static void main(String[] args) {
+        Test t = new Test();
+
+
+    }
 
 }
