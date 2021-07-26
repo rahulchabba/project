@@ -1,6 +1,14 @@
 package com.test;
 
 public class Test {
+
+	static void tes(){
+
+	}
+
+	void ww(){
+
+	}
 	/**
 	 * Lis() returns the length of the longest increasing subsequence in arr[] of
 	 * size n.
