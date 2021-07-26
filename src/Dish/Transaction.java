@@ -53,7 +53,6 @@ public class Transaction {
 		transactions.stream().filter((transaction) -> transaction.getYear() >= 2011)
 				.sorted(Comparator.comparing(Transaction::getValue)).collect(Collectors.toList())
 				.forEach(System.out::println);
-		;
 
 		System.out.println("2. What are all the unique cities where the traders work? ");
 		System.out.println();

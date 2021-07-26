@@ -25,8 +25,8 @@ public class ForkJoinSplitrator {
 		boolean lastspace = true;
 		for (char c : s.toCharArray()) {
 			if (Character.isWhitespace(c)) {
-				lastspace = true;;
-			} else {
+				lastspace = true;
+            } else {
 				if (lastspace)
 					counter++;
 				lastspace = false;

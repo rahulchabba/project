@@ -6,8 +6,8 @@ class GFG {
 
 	/* Function to print the second largest
 	elements */
-	public static void print2largest(int arr[],
-									int arr_size)
+	public static void print2largest(int[] arr,
+                                     int arr_size)
 	{
 		int i, first, second;
 		/* There should be atleast two elements */
@@ -39,7 +39,7 @@ class GFG {
 	/* Driver program to test above function */
 	public static void main(String[] args)
 	{
-		int arr[] = { 12, 35, 1, 10, 34, 1 };
+		int[] arr = { 12, 35, 1, 10, 34, 1 };
 		int n = arr.length;
 		print2largest(arr, n);
 	}

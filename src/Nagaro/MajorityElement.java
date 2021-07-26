@@ -5,7 +5,7 @@ class MajorityElement {
     public static void main(String[] args) {
         MajorityElement majorelement
                 = new MajorityElement();
-        int a[] = new int[]{1, 3, 3, 3, 1, 2};
+        int[] a = new int[]{1, 3, 3, 3, 1, 2};
 
         // Function call
         int size = a.length;
@@ -13,7 +13,7 @@ class MajorityElement {
     }
 
     /* Function to print Majority Element */
-    void printMajority(int a[], int size) {
+    void printMajority(int[] a, int size) {
         /* Find the candidate for Majority*/
         int cand = findCandidate(a, size);
 
@@ -25,7 +25,7 @@ class MajorityElement {
     }
 
     /* Function to find the candidate for Majority */
-    int findCandidate(int a[], int size) {
+    int findCandidate(int[] a, int size) {
         int maj_index = 0, count = 1;
         int i;
         for (i = 1; i < size; i++) {
@@ -43,15 +43,12 @@ class MajorityElement {
 
     /* Function to check if the candidate occurs more
     than n/2 times */
-    boolean isMajority(int a[], int size, int cand) {
+    boolean isMajority(int[] a, int size, int cand) {
         int i, count = 0;
         for (i = 0; i < size; i++) {
             if (a[i] == cand)
                 count++;
         }
-        if (count > size / 2)
-            return true;
-        else
-            return false;
+        return count > size / 2;
     }
 }

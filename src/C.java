@@ -38,8 +38,7 @@ public  class C  implements A 	{
 	Object a = map.get("key");
 	
 	Optional<Object> value = Optional.ofNullable(map.get("key"));
-	System.out.println(value.toString());
+	System.out.println(value);
 }
 	 
 }
- 
