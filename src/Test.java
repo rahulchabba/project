@@ -1,5 +1,7 @@
+import java.util.Arrays;
+
 class Parent {
-    private final int num = 1;
+    public int num = 1;
 
     Parent() {
         System.out.println("Parent class default constructor.");
@@ -9,31 +11,45 @@ class Parent {
         System.out.println("Parent class parameterised constructor.");
     }
 
-    public static void foo() {
-        System.out.println("Parent class foo!");
+    public  void m1() {
+        System.out.println("Parent class foo! Parent");
     }
+
+    public  void m2() {
+        System.out.println("Parent class foo!  Parent");
+    }
+
 }
 
 class Child extends Parent {
 
-    public static void foo() {
+    public int num = 2;
 
+    public  void m1() {
+        System.out.println("Parent class foo! child");
+    }
+
+    public  void m3() {
+        System.out.println("Parent class foo! child");
     }
 
 
 }
 
-public class Test extends Parent {
-
-    public Test() {
-        super();
-    }
-
+public class Test  {
 
     public static void main(String[] args) {
-        Test t = new Test();
+        String s = new String("rahul");
+        String s1 = new String("rahul");
+        String s2= "rahul";
+
+        int a[] = new int[10];
+        Arrays.asList(a);
+        System.out.println(s==s1);
 
 
     }
+
+
 
 }
