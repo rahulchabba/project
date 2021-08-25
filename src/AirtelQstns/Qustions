@@ -1,0 +1,30 @@
+ 128 Mb ram --- csv 120GB file
+ extrenal sort
+[2:24 pm, 03/08/2021] Rahul: extrenal sorting
+[2:24 pm, 03/08/2021] Rahul: Onheap and OffHeap and Main Disk
+[2:25 pm, 03/08/2021] Rahul: ram and Main disk spaces
+[2:25 pm, 03/08/2021] Rahul: DeadLock
+[2:25 pm, 03/08/2021] Rahul: example
+[2:26 pm, 03/08/2021] Rahul: cyclic lock T1 t2 a lock  and avoid locking
+[2:26 pm, 03/08/2021] Rahul: single process pe multiplethread
+[2:27 pm, 03/08/2021] Rahul: kaise chlne hai ayaa nahi chal sktey
+[2:28 pm, 03/08/2021] Rahul: application got down and Memory out of bound ... resoltuin ..... Heapdump analusys ... console GC1  .... Avaoid memory leak
+[2:29 pm, 03/08/2021] Rahul: collections support only  Wrapper classes  why not Primitive
+
+[2:24 pm, 03/08/2021] Ps Vivek: on heap, off heap, main disk
+[2:25 pm, 03/08/2021] Ps Vivek: deadlock
+[2:28 pm, 03/08/2021] Ps Vivek: why primitives nt supported in collections
+[2:29 pm, 03/08/2021] Ps Vivek: heap dump analysis
+[2:29 pm, 03/08/2021] Ps Vivek: design patters - gangs of four
+-----------------------------------
+Second round
+Design Cache like redis ----- using lRU ---- Eviction policy
+Design for 100GB file and have smll heap like 16 gb  search for a Key.
+list of Integer of 100gm and search 1 key in system.
+
+in O(1) try to make use of it.
+
+--------------------
+twitter design
+email spell checking
+-----

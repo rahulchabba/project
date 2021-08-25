@@ -48,6 +48,11 @@ class test1 {
 
 	public static void main(String[] args) {
 
+		Double d = 1d;
+		Double d1 = 1d;
+
+		System.out.println(d.equals(d1));
+
 		int[] a = { 1, 3, 2, 2 };
 		int n = a.length;
 

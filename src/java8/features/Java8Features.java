@@ -91,7 +91,6 @@ public class Java8Features {
         System.out.println(mapOfWordAndCountInteger);
         line();
 
-
         System.out.println(count + " Get the employee with max Salary");
         String nameOfHigestSalariedEmployee = createEmployeeDuplicateValue()
                 .stream().collect(
@@ -112,4 +111,10 @@ public class Java8Features {
 
 
     }
+}
+
+class T{
+
+
+
 }

@@ -1,7 +1,5 @@
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,15 +10,14 @@ public class Java8WordFrequencyCount {
 
     public static void main(String[] args) {
 
-        String wordsList = "Lorem adipising ipsum dolor sit Lorem amet Consectetur adipising elit Lorem ipsum dolor";
+
+
+        String wordsList = "my name is rahul my  is name is anmol";
 
         List<String> list = Stream.of(wordsList).map(w -> w.split("\\s+")).flatMap(Arrays::stream)
                 .collect(Collectors.toList());
-
-        Map<String, Integer> wordCounter = list.stream()
-                .collect(Collectors.toMap(w -> w.toLowerCase(), w -> 1, Integer::sum));
-
-        System.out.println(wordCounter);
+        Optional<String> firstelement = Stream.of(wordsList).map(w -> w.split("\\s+")).flatMap(Arrays::stream)
+                .findFirst();
 
 
         Map<String, Long> collect =
@@ -29,6 +26,12 @@ public class Java8WordFrequencyCount {
         Map<String, Integer> collectqqq=
                 list.stream().collect(groupingBy(Function.identity(), summingInt(e -> 1)));
         System.out.println(collectqqq);
+
+        Map<String, Integer> wordCounter = list.stream()
+                .collect(Collectors.toMap(w -> w.toLowerCase(), w -> 1, Integer::sum));
+
+        System.out.println(wordCounter);
+
     }
 
 }
