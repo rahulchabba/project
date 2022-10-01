@@ -1,6 +1,8 @@
 package java8.features;
 
+import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.*;
@@ -33,7 +35,7 @@ public class Java8Features {
         //1. List name of Emp who is having PINCODE as 140126
         System.out.println(count + ". List name of Emp who is having PINCODE as 140126");
         createEmployee().stream().filter(employee -> employee.getAddress().getPinCode() == 140126)
-                .map(employee -> employee.getName())
+                .map(Employee::getName)
                 .forEach(System.out::println);
         line();
 
@@ -41,9 +43,9 @@ public class Java8Features {
         List<String> listOfNameAgeGreater30 = createEmployee().stream()
                 .filter(employee -> employee.getAge() >= 33)
                 .map(employee -> employee.getName() + "-" + employee.getAge())
-                .map(name -> name.toUpperCase())
+                .map(String::toUpperCase)
                 .collect(toList());
-        listOfNameAgeGreater30.forEach(e -> System.out.println(e));
+        listOfNameAgeGreater30.forEach(System.out::println);
         line();
 
         System.out.println(count + ". Create Map of Name and Age of Employee");
@@ -58,10 +60,10 @@ public class Java8Features {
         System.out.println(createEmployee().stream().collect(partitioningBy(employee -> employee.getAge() % 2 == 0)));
         line();
 
-        System.out.println(count + ". Employee with same name group together andList of Employee");
-        Map<String, List<Employee>> mapOfNameAndmployee = createEmployeeDuplicateValue()
+        System.out.println(count + ". Employee with same age group together andList of Employee");
+        Map<Integer, List<Employee>> mapOfNameAndmployee = createEmployeeDuplicateValue()
                 .stream().collect(
-                        groupingBy(employee -> employee.getName()));
+                        groupingBy(Employee::getAge));
         printMap(mapOfNameAndmployee);
         line();
         System.out.println(count + ". Employee with same name and Ages as value");
@@ -70,14 +72,14 @@ public class Java8Features {
         //Get the Map Keys as Name and also Want Age only instead Employee Object
         Map<String, List<Integer>> mapOfNameAndAge = createEmployeeDuplicateValue()
                 .stream().collect(
-                        groupingBy(employee -> employee.getName(),
-                                mapping(employee -> employee.getAge(), toList())));
+                        groupingBy(Employee::getName,
+                                mapping(Employee::getAge, toList())));
         printMap(mapOfNameAndAge);
         line();
 
 
-        System.out.println(count + ". Find the no of occurance of Each word in String ");
-        List<String> aSentence = Arrays.asList("Find the no of occurance of Each word in String ".split(" "));
+        System.out.println(count + ". 8 Find the no of occurrence of Each word in String ");
+        List<String> aSentence = Arrays.asList("Find the no no no of occurrence of Each word in String ".split(" "));
         Map<String, Long> mapOfWordAndCountLong = aSentence.stream()
                 .collect(groupingBy(words -> words, counting()));
         System.out.println("Printing values as Long ");
@@ -95,11 +97,10 @@ public class Java8Features {
         String nameOfHigestSalariedEmployee = createEmployeeDuplicateValue()
                 .stream().collect(
                         collectingAndThen(
-                                maxBy(
-                                        comparing(Employee::getSalary)),
+                                maxBy(comparing(Employee::getSalary)),
                                 employee -> employee.map(Employee::getName).orElse("")));
         System.out.println(nameOfHigestSalariedEmployee);
-
+        line();
 
         System.out.println(count + " Sort the Employee based on based on Name and then Salary - ");
         Comparator<Employee> employeeComparator = Comparator.
@@ -108,13 +109,23 @@ public class Java8Features {
         System.out.println( " Before Sorting --- "+empList);
           Collections.sort(empList,employeeComparator);
         System.out.println(" After Sorting --- "+empList);
+        line();
 
+        System.out.println(count + " Get Employee Name which belong from 1 location.");
+
+        List<Employee> employeeBelongFromPunjab =createEmployee().stream().filter(employee-> employee.getAddress()
+                .getState().equalsIgnoreCase("Punjab")).collect(Collectors.toList());
+        Comparator<Employee> sortReveresAge = Comparator.comparing(Employee::getAge).reversed();
+        employeeBelongFromPunjab.stream().sorted(sortReveresAge).forEach(System.out::println);
+        line();
+
+        String[] str = new String[10];
+        str[5] = "JAVA OPTIONAL CLASS EXAMPLE";  // Setting value for 5th index
+        Optional<String> checkNull = Optional.ofNullable(str[5]);
+        checkNull.ifPresent(System.out::println);   // printing value by using method reference
+        System.out.println(checkNull.get());    // printing value by using get method
+        System.out.println(str[5].toLowerCase());
 
     }
 }
 
-class T{
-
-
-
-}

@@ -1,3 +1,4 @@
+/*
 package com.test.javarnd;
 
 import javax.imageio.IIOImage;
@@ -146,3 +147,4 @@ public class CompressJPEGFile {
 
 
 }
+*/
